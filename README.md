@@ -26,6 +26,11 @@ Ce projet regroupe **deux applications distinctes** de vision par ordinateur qui
 ## 📸 Captures d'écran
 
 ![image alt](https://github.com/abidirymeh/analyse-comportementale/blob/cd99977033a0e69b9d5fdb48ad5785485e04cf9d/500.png)
+![image alt](https://github.com/abidirymeh/analyse-comportementale/blob/b945c730b3e5866bfeb010e5279c85d0444b3be5/900.png)
+![image alt](https://github.com/abidirymeh/analyse-comportementale/blob/b945c730b3e5866bfeb010e5279c85d0444b3be5/800.png)
+![image alt](https://github.com/abidirymeh/analyse-comportementale/blob/b945c730b3e5866bfeb010e5279c85d0444b3be5/700.png)
+![image alt](https://github.com/abidirymeh/analyse-comportementale/blob/b945c730b3e5866bfeb010e5279c85d0444b3be5/600.png)
+
 ---
 
 ## 📦 Prérequis
