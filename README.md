@@ -23,6 +23,10 @@ Ce projet regroupe **deux applications distinctes** de vision par ordinateur qui
 ⚠️ **Note** : les deux scripts sont indépendants — ce n'est pas un "mode 1 / mode 2" du même moteur, mais deux prototypes différents dans le même dépôt.
 
 ---
+## 📸 Captures d'écran
+
+![image alt](https://github.com/abidirymeh/analyse-comportementale/blob/cd99977033a0e69b9d5fdb48ad5785485e04cf9d/500.png)
+---
 
 ## 📦 Prérequis
 
