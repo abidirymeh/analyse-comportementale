@@ -25,11 +25,11 @@ Ce projet regroupe **deux applications distinctes** de vision par ordinateur qui
 ---
 ## 📸 Captures d'écran
 
-![image alt](https://github.com/abidirymeh/analyse-comportementale/blob/cd99977033a0e69b9d5fdb48ad5785485e04cf9d/500.png)
-![image alt](https://github.com/abidirymeh/analyse-comportementale/blob/b945c730b3e5866bfeb010e5279c85d0444b3be5/900.png)
-![image alt](https://github.com/abidirymeh/analyse-comportementale/blob/b945c730b3e5866bfeb010e5279c85d0444b3be5/800.png)
-![image alt](https://github.com/abidirymeh/analyse-comportementale/blob/b945c730b3e5866bfeb010e5279c85d0444b3be5/700.png)
-![image alt](https://github.com/abidirymeh/analyse-comportementale/blob/b945c730b3e5866bfeb010e5279c85d0444b3be5/600.png)
+![image alt](https://github.com/abidirymeh/analyse-comportementale/blob/57455a820ab7bb3c7de7d5fc6a6a2d33e264d8b9/capture1.jfif)
+![image alt](https://github.com/abidirymeh/analyse-comportementale/blob/57455a820ab7bb3c7de7d5fc6a6a2d33e264d8b9/capture2.jfif)
+![image alt](https://github.com/abidirymeh/analyse-comportementale/blob/57455a820ab7bb3c7de7d5fc6a6a2d33e264d8b9/capture3.jfif)
+![image alt](https://github.com/abidirymeh/analyse-comportementale/blob/57455a820ab7bb3c7de7d5fc6a6a2d33e264d8b9/capture4.jfif)
+![image alt](https://github.com/abidirymeh/analyse-comportementale/blob/57455a820ab7bb3c7de7d5fc6a6a2d33e264d8b9/capture5.jfif)
 
 ---
 
