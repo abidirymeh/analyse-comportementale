@@ -1,29 +1,29 @@
-# 🔍 Analyse Comportementale
+# 🔍 Behavioral Analysis
 
-> **Vision par ordinateur** pour l'analyse en temps réel du comportement humain.
+> **Computer vision** for real-time analysis of human behavior.
 
 ---
 
-## 🪧 À propos
+## 🪧 About
 
-Ce projet regroupe **deux applications distinctes** de vision par ordinateur qui analysent le comportement de personnes à partir d'une webcam ou d'une vidéo enregistrée. Elles ne partagent pas le même moteur de détection :
+This project brings together **two separate** computer vision applications that analyze people's behavior from a webcam or a recorded video. They do not share the same detection engine:
 
-| | `app.py` (webcam live) | `detect.py` (vidéo enregistrée) |
+| | `app.py` (live webcam) | `detect.py` (recorded video) |
 | :--- | :--- | :--- |
-| **Détection** | MediaPipe Holistic (pose + visage + mains) | YOLOv8-pose (`ultralytics`) avec suivi ByteTrack |
-| **Ce qui est mesuré** | Regard (attentif/distrait), posture (bonne/mauvaise), durée | Posture (floue), position des bras, agitation (vitesse des poignets), émotion faciale (DeepFace), état psychologique estimé |
-| **Export** | CSV des statistiques | — (pas d'export pour l'instant) |
+| **Detection** | MediaPipe Holistic (pose + face + hands) | YOLOv8-pose (`ultralytics`) with ByteTrack tracking |
+| **What is measured** | Gaze (attentive/distracted), posture (good/bad), duration | Posture (fuzzy), arm position, restlessness (wrist speed), facial emotion (DeepFace), estimated psychological state |
+| **Export** | CSV statistics | — (no export for now) |
 
-**Pourquoi ce projet ?**
-- Détecter la posture pour prévenir les problèmes de dos
-- Analyser le regard et l'agitation pour mesurer l'attention/le stress
-- Explorer MediaPipe, YOLO-pose, DeepFace et la logique floue (`scikit-fuzzy`) pour la classification comportementale
-- Créer une interface simple et interactive avec Streamlit
+**Why this project?**
+- Detect posture to help prevent back problems
+- Analyze gaze and restlessness to measure attention/stress
+- Explore MediaPipe, YOLO-pose, DeepFace, and fuzzy logic (`scikit-fuzzy`) for behavioral classification
+- Build a simple, interactive interface with Streamlit
 
-⚠️ **Note** : les deux scripts sont indépendants — ce n'est pas un "mode 1 / mode 2" du même moteur, mais deux prototypes différents dans le même dépôt.
+⚠️ **Note**: the two scripts are independent — this isn't a "mode 1 / mode 2" of the same engine, but two different prototypes within the same repository.
 
 ---
-## 📸 Captures d'écran
+## 📸 Screenshots
 
 ![image alt](https://github.com/abidirymeh/analyse-comportementale/blob/57455a820ab7bb3c7de7d5fc6a6a2d33e264d8b9/capture1.jfif)
 ![image alt](https://github.com/abidirymeh/analyse-comportementale/blob/57455a820ab7bb3c7de7d5fc6a6a2d33e264d8b9/capture2.jfif)
@@ -33,9 +33,9 @@ Ce projet regroupe **deux applications distinctes** de vision par ordinateur qui
 
 ---
 
-## 📦 Prérequis
+## 📦 Requirements
 
-| Élément | Version minimale | Lien |
+| Item | Minimum version | Link |
 | :--- | :--- | :--- |
 | **Python** | 3.10+ | [python.org](https://python.org) |
 | **pip** | 22.0+ | [pip documentation](https://pip.pypa.io/) |
@@ -45,165 +45,165 @@ Ce projet regroupe **deux applications distinctes** de vision par ordinateur qui
 
 ## 🚀 Installation
 
-### 1. Cloner le dépôt
+### 1. Clone the repository
 
 ```bash
 git clone https://github.com/abidirymeh/analyse-comportementale.git
 cd analyse-comportementale
 ```
 
-### 2. Créer un environnement virtuel
+### 2. Create a virtual environment
 
 ```bash
 python -m venv venv
 ```
 
-### 3. Activer l'environnement virtuel
+### 3. Activate the virtual environment
 
-**Windows :**
+**Windows:**
 ```bash
 venv\Scripts\activate
 ```
 
-**Mac / Linux :**
+**Mac / Linux:**
 ```bash
 source venv/bin/activate
 ```
 
-### 4. Installer les dépendances
+### 4. Install the dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### 5. Vérifier l'installation
+### 5. Check the installation
 
 ```bash
 pip list
 ```
 
 ###
-## 🛠️ Utilisation
+## 🛠️ Usage
 
-### Mode 1 : Webcam en direct — `app.py` (MediaPipe)
+### Mode 1: Live webcam — `app.py` (MediaPipe)
 
 ```bash
 streamlit run app.py
 ```
 
-Ouvre ensuite ton navigateur à : http://localhost:8501
+Then open your browser at: http://localhost:8501
 
-Fonctionnalités :
-- ✅ Capture et analyse en temps réel via WebRTC
-- ✅ Détection du regard (attentif / distrait) et de la posture
-- ✅ Tableau de bord interactif dans la barre latérale
-- ✅ Export des statistiques en CSV
+Features:
+- ✅ Real-time capture and analysis via WebRTC
+- ✅ Gaze detection (attentive / distracted) and posture
+- ✅ Interactive dashboard in the sidebar
+- ✅ Export statistics to CSV
 
-### Mode 2 : Vidéo enregistrée — `detect.py` (YOLO-pose + DeepFace + logique floue)
+### Mode 2: Recorded video — `detect.py` (YOLO-pose + DeepFace + fuzzy logic)
 
 ```bash
 streamlit run detect.py
 ```
 
-Dans la barre latérale, configure :
-- **Chemin vidéo** 
-- **Vitesse de lecture** et **frames à sauter**
-- Affichage de la confiance et du squelette (avec épaisseur réglable)
+In the sidebar, configure:
+- **Video path**
+- **Playback speed** and **frames to skip**
+- Display of confidence and skeleton (with adjustable thickness)
 
-Puis clique sur **▶️ Démarrer** (et **⏹️ Arrêter** pour stopper).
+Then click **▶️ Start** (and **⏹️ Stop** to stop).
 
-Fonctionnalités :
-- ✅ Suivi multi-personnes (ByteTrack)
-- ✅ Classification floue de la posture (debout / assis / penché)
-- ✅ Détection de la position des bras (croisés / ouverts / cachés)
-- ✅ Estimation de l'agitation (vitesse des poignets)
-- ✅ Reconnaissance d'émotion faciale (DeepFace)
-- ✅ Estimation d'un "état psychologique" combinant ces signaux (ex. 😊 Confiant, 😰 Stressé/Anxieux)
+Features:
+- ✅ Multi-person tracking (ByteTrack)
+- ✅ Fuzzy classification of posture (standing / sitting / leaning)
+- ✅ Arm position detection (crossed / open / hidden)
+- ✅ Restlessness estimation (wrist speed)
+- ✅ Facial emotion recognition (DeepFace)
+- ✅ Estimation of a "psychological state" combining these signals (e.g. 😊 Confident, 😰 Stressed/Anxious)
 
-### Mode 3 : Exporter les données (webcam uniquement)
+### Mode 3: Export data (webcam only)
 
-Une fois l'analyse `app.py` en cours, clique sur **"Exporter CSV"** dans la barre latérale.
+Once the `app.py` analysis is running, click **"Export CSV"** in the sidebar.
 
-Format du fichier CSV :
+CSV file format:
 ```csv
-ID,Attention_%,Mauvaise_posture_%,Durée_s
+ID,Attention_%,Bad_posture_%,Duration_s
 1,95.2,5.8,12
 2,67.3,32.7,8
 ```
 
 ---
 
-## 🤝 Contribution
+## 🤝 Contributing
 
-Les contributions sont les bienvenues !
+Contributions are welcome!
 
-1. **Forker le projet** — bouton "Fork" en haut à droite du dépôt GitHub.
-2. **Cloner ton fork**
+1. **Fork the project** — the "Fork" button at the top right of the GitHub repository.
+2. **Clone your fork**
    ```bash
    git clone https://github.com/abidirymeh/analyse-comportementale.git
    cd analyse-comportementale
    ```
-3. **Créer une branche pour ta feature**
+3. **Create a branch for your feature**
    ```bash
-   git checkout -b feature/nom-de-ta-feature
+   git checkout -b feature/your-feature-name
    ```
-4. **Faire tes modifications** — ajoute ton code, vérifie que tout fonctionne, mets à jour la doc si besoin.
-5. **Commiter tes changements**
+4. **Make your changes** — add your code, make sure everything works, update the docs if needed.
+5. **Commit your changes**
    ```bash
    git add .
-   git commit -m "Ajout de la fonctionnalité X"
+   git commit -m "Add feature X"
    ```
-6. **Pousser ta branche**
+6. **Push your branch**
    ```bash
-   git push origin feature/nom-de-ta-feature
+   git push origin feature/your-feature-name
    ```
-7. **Ouvrir une Pull Request** vers la branche `main` du dépôt original.
+7. **Open a Pull Request** against the `main` branch of the original repository.
 
-**Conventions de commit :**
-- `feat:` pour une nouvelle fonctionnalité
-- `fix:` pour une correction de bug
-- `docs:` pour la documentation
-- `style:` pour le formatage
-- `refactor:` pour une refactorisation
-- `test:` pour les tests
-- `chore:` pour les tâches de maintenance
+**Commit conventions:**
+- `feat:` for a new feature
+- `fix:` for a bug fix
+- `docs:` for documentation
+- `style:` for formatting
+- `refactor:` for refactoring
+- `test:` for tests
+- `chore:` for maintenance tasks
 
 ---
 
-## 🏗️ Construit avec
+## 🏗️ Built With
 
-### Langages & Frameworks
+### Languages & Frameworks
 
-| Outil | Rôle | Lien |
+| Tool | Role | Link |
 | :--- | :--- | :--- |
-| Python 3.10+ | Langage principal | [python.org](https://python.org) |
-| Streamlit | Interface utilisateur | [streamlit.io](https://streamlit.io) |
-| Streamlit-WebRTC | Capture webcam (`app.py`) | [streamlit-webrtc](https://github.com/whitphx/streamlit-webrtc) |
-| MediaPipe | Détection pose/visage/mains (`app.py`) | [mediapipe.dev](https://mediapipe.dev) |
-| Ultralytics YOLOv8-pose | Détection + suivi de pose (`detect.py`) | [ultralytics.com](https://ultralytics.com) |
-| DeepFace | Reconnaissance d'émotion faciale (`detect.py`) | [github.com/serengil/deepface](https://github.com/serengil/deepface) |
-| scikit-fuzzy | Classification floue posture/bras/agitation (`detect.py`) | [pypi.org/project/scikit-fuzzy](https://pypi.org/project/scikit-fuzzy) |
-| OpenCV | Traitement d'images | [opencv.org](https://opencv.org) |
-| NumPy | Calculs numériques | [numpy.org](https://numpy.org) |
-| Pandas | Gestion des données | [pandas.pydata.org](https://pandas.pydata.org) |
+| Python 3.10+ | Main language | [python.org](https://python.org) |
+| Streamlit | User interface | [streamlit.io](https://streamlit.io) |
+| Streamlit-WebRTC | Webcam capture (`app.py`) | [streamlit-webrtc](https://github.com/whitphx/streamlit-webrtc) |
+| MediaPipe | Pose/face/hand detection (`app.py`) | [mediapipe.dev](https://mediapipe.dev) |
+| Ultralytics YOLOv8-pose | Pose detection + tracking (`detect.py`) | [ultralytics.com](https://ultralytics.com) |
+| DeepFace | Facial emotion recognition (`detect.py`) | [github.com/serengil/deepface](https://github.com/serengil/deepface) |
+| scikit-fuzzy | Fuzzy classification of posture/arms/restlessness (`detect.py`) | [pypi.org/project/scikit-fuzzy](https://pypi.org/project/scikit-fuzzy) |
+| OpenCV | Image processing | [opencv.org](https://opencv.org) |
+| NumPy | Numerical computation | [numpy.org](https://numpy.org) |
+| Pandas | Data handling | [pandas.pydata.org](https://pandas.pydata.org) |
 
-### Outils
+### Tools
 
-| Outil | Rôle | Lien |
+| Tool | Role | Link |
 | :--- | :--- | :--- |
-| Git | Gestion de version | [git-scm.com](https://git-scm.com) |
-| GitHub | Hébergement du code | [github.com](https://github.com) |
-| VSCode | Éditeur de code | [code.visualstudio.com](https://code.visualstudio.com) |
+| Git | Version control | [git-scm.com](https://git-scm.com) |
+| GitHub | Code hosting | [github.com](https://github.com) |
+| VSCode | Code editor | [code.visualstudio.com](https://code.visualstudio.com) |
 
 ### CI / CD
 
-Actuellement, ce projet n'utilise pas d'intégration continue. Amélioration future possible.
+This project does not currently use continuous integration. A future improvement to consider.
 
-### Déploiement
+### Deployment
 
-Conçu pour fonctionner en local. Un déploiement en ligne est envisageable avec Streamlit Cloud ou Hugging Face Spaces — à condition de vérifier la compatibilité de YOLO/DeepFace avec l'environnement cible (poids de modèles, mémoire, GPU).
+Designed to run locally. Online deployment is conceivable with Streamlit Cloud or Hugging Face Spaces — provided the compatibility of YOLO/DeepFace with the target environment is checked (model weights, memory, GPU).
 
-| Plateforme | Lien |
+| Platform | Link |
 | :--- | :--- |
 | Streamlit Cloud | [streamlit.io/cloud](https://streamlit.io/cloud) |
 | Hugging Face Spaces | [huggingface.co/spaces](https://huggingface.co/spaces) |
@@ -212,13 +212,13 @@ Conçu pour fonctionner en local. Un déploiement en ligne est envisageable avec
 
 ## 📚 Documentation
 
-### Documentation embarquée
-- `README.md` — présentation générale du projet
-- `requirements.txt` — liste des dépendances
+### Embedded documentation
+- `README.md` — general overview of the project
+- `requirements.txt` — list of dependencies
 
-### Documentation externe
+### External documentation
 
-| Sujet | Lien |
+| Topic | Link |
 | :--- | :--- |
 | MediaPipe Pose | [MediaPipe Pose Guide](https://developers.google.com/mediapipe/solutions/vision/pose_landmarker) |
 | Ultralytics YOLO Pose | [docs.ultralytics.com](https://docs.ultralytics.com/tasks/pose/) |
@@ -227,51 +227,51 @@ Conçu pour fonctionner en local. Un déploiement en ligne est envisageable avec
 | Streamlit Documentation | [docs.streamlit.io](https://docs.streamlit.io) |
 | OpenCV Tutorials | [docs.opencv.org](https://docs.opencv.org) |
 
-### Structure du code
+### Code structure
 
 ```
 CV2/
 │
-├── core/                          # Modules de app.py (à créer, voir Installation §6)
+├── core/                          # Modules for app.py (to be created, see Installation §6)
 │   ├── detectors.py               # HolisticDetector (MediaPipe)
 │   ├── tracker.py                 # PersonTracker
 │   ├── analyzers.py               # AttentionAnalyzer, PostureAnalyzer
-│   └── visualizer.py              # Visualizer (overlays OpenCV)
+│   └── visualizer.py              # Visualizer (OpenCV overlays)
 │
 ├                     
-├── RESULT.mp4                     # Exemple de vidéo pour detect.py
+├── RESULT.mp4                     # Example video for detect.py
 │
-├── app.py                         # App webcam live (MediaPipe)
+├── app.py                         # Live webcam app (MediaPipe)
 ├── src/
-│     └── detect.py                # App vidéo (YOLO-pose + DeepFace + logique floue)
+│     └── detect.py                # Video app (YOLO-pose + DeepFace + fuzzy logic)
 │                         
-├── requirements.txt               # Dépendances
+├── requirements.txt               # Dependencies
 ├── README.md                      # Documentation
-└── .gitignore                     # Fichiers ignorés
+└── .gitignore                     # Ignored files
 ```
 
 ---
 
-## 🏷️ Gestion des versions
+## 🏷️ Versioning
 
-Le nommage des versions suit la [Gestion sémantique de version](https://semver.org/lang/fr/) : `MAJOR.MINOR.PATCH`
+Version naming follows [Semantic Versioning](https://semver.org/): `MAJOR.MINOR.PATCH`
 
-- **MAJOR** : changements incompatibles avec les versions antérieures
-- **MINOR** : ajout de fonctionnalités (rétrocompatible)
-- **PATCH** : corrections de bugs (rétrocompatible)
+- **MAJOR**: changes incompatible with earlier versions
+- **MINOR**: added features (backward-compatible)
+- **PATCH**: bug fixes (backward-compatible)
 
-Les versions et journaux de changements sont disponibles depuis la page des Releases.
+Versions and changelogs are available on the Releases page.
 
 ---
 
-## 📝 Licence
+## 📝 License
 
-Voir le fichier `LICENSE` du dépôt. Ce projet est sous licence MIT — vous pouvez l'utiliser, le modifier et le distribuer librement.
+See the repository's `LICENSE` file. This project is licensed under the MIT License — you may use, modify, and distribute it freely.
 
 ---
 
 ## 📧 Contact
 
-- **Auteur** : [Rimeh Abidi]
-- **Email** : [rimeh.abidi@enis.tn]
-- **GitHub** : https://github.com/abidirymeh
+- **Author**: [Rimeh Abidi]
+- **Email**: [rimeh.abidi@enis.tn]
+- **GitHub**: https://github.com/abidirymeh
